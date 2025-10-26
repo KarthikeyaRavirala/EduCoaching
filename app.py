@@ -8,7 +8,25 @@ import tempfile
 from audio_recorder_streamlit import audio_recorder
 
 # Initialize the Groq client
-api_key=st.secrets['key']
+# Prefer Streamlit secrets, fall back to environment variables, and show a helpful message when missing.
+api_key = None
+try:
+    api_key = st.secrets.get('key')
+except Exception:
+    # st.secrets might not be available in some runtimes; fallback to env var below
+    api_key = None
+
+# Also allow an environment variable for CI / deployment setups
+if not api_key:
+    api_key = os.environ.get('GROQ_API_KEY') or os.environ.get('GROQ_KEY')
+
+if not api_key or str(api_key).upper().startswith('REPLACE'):
+    st.error(
+        "Groq API key not found. Add your key to `.streamlit/secrets.toml` with `key = \"sk-...\"` "
+        "or set the environment variable `GROQ_API_KEY`. The app cannot call the Groq API until this is set."
+    )
+    st.stop()
+
 client = Groq(api_key=api_key)
 
 def transcribe_audio(audio_file):
