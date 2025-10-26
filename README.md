@@ -1,17 +1,7 @@
-# Edge_Runners_Hack
 
-
-# EnglishCoach 2.0
+# EnglishCoach
 
 [![Streamlit App](https://englishcoach2.streamlit.app/)](https://englishcoach2.streamlit.app/)
-
-## Event Participation
-
-We participated in the [Edge Runners 3.2 Event on lablab.ai](https://lablab.ai/event/edge-runners-3-point-2).
-
-## Submission
-
-Check out our submission for the event: [EnglishCoach2](https://lablab.ai/event/edge-runners-3-point-2/botbuilders/englishcoach2).
 
 
 EnglishCoach 2.0 is a web-based application designed to help users improve their English communication skills through personalized feedback on both writing and speaking. Whether you're preparing for exams like IELTS, PTE, or DET, or just aiming to enhance your fluency, this app provides detailed feedback in real-time to boost your confidence in both writing and speaking.
